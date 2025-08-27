@@ -123,8 +123,11 @@
   <div class="lg:p-10">
     <template v-if="hand.tiles.hand.length">
       <HandView :hand="hand.tiles" :carelessly="trainingSettings.carelessly"/>
+      <div class="text-center w-full text-xs">
+        ID: {{ hand.GUID }}
+      </div>
       <WinningParameters :parameters="hand.winningParameters" :include-honba="trainingSettings.includeHonba" />
-      <div class="grid grid-cols-2 lg:grid-flow-col pt-8 w-fit min-w-1/2 gap-4 mx-auto">
+      <div class="grid grid-cols-2 lg:grid-flow-col pt-4 w-fit min-w-1/2 gap-4 mx-auto">
         <div>
           <div>{{ $t("Han") }}</div>
           <UInput ref="inputHan" v-model="inputAnswer.han" :disabled="showParameters.inputDisabled" @keyup.enter="jumpToInputFu">
