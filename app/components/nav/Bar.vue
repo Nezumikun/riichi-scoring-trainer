@@ -37,7 +37,7 @@ function onSelecLanguage(lang : LocaleObject) : void {
   <nav class="shadow-lg w-full fixed top-0 h-15">
     <div class="flex items-center justify-between max-w-6xl mx-auto">
       <div class="space-x-7">
-        <NuxtLinkLocale to="/" class="flex items-center py-4 px-2">
+        <NuxtLinkLocale to="/hand" class="flex items-center py-4 px-2">
           <span class="font-semibold text-lg">
             {{ $t('site_title') }}
           </span>
