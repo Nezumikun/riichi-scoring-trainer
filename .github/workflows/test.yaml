@@ -7,7 +7,8 @@ on:
   pull_request:
     branches: [ "master" ]
 jobs:
-  check-bats-version:
+  build:
+    name: Build conteiner
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -18,4 +19,12 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           push: false
-          tags: nezumukun/app:latest        
+          tags: nezumukun/app:latest
+      - name: Test 1
+        run: docker run nezumukun/app:latest --detach --name app
+      - name: Test 2
+        run: docker exec --it app ls -alR /
+      - name: Test 3
+        run: docker stop app
+      - name: Test 4
+        run: docker rm app        
