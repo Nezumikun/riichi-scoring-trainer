@@ -18,13 +18,7 @@ jobs:
       - name: Build
         uses: docker/build-push-action@v7
         with:
-          push: false
+          context: .
           tags: nezumukun/app:latest
       - name: Test 1
-        run: docker run nezumukun/app:latest --detach --name app
-      - name: Test 2
-        run: docker exec --it app ls -alR /
-      - name: Test 3
-        run: docker stop app
-      - name: Test 4
-        run: docker rm app        
+        run: docker run --rm nezumukun/app:latest ls -alR /
