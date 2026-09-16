@@ -18,7 +18,10 @@ jobs:
       - name: Build
         uses: docker/build-push-action@v6
         with:
-          context: .
           tags: nezumukun/app:latest
+          outputs: type=docker,dest=${{ runner.temp }}/myimage.tar
       - name: Test 1
-        run: docker run --rm nezumukun/app:latest ls -alR /
+        run: |
+          docker load --input ${{ runner.temp }}/myimage.tar
+          docker image ls -a
+          docker ps
