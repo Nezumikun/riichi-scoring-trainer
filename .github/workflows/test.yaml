@@ -23,5 +23,4 @@ jobs:
       - name: Test 1
         run: |
           docker load --input ${{ runner.temp }}/myimage.tar
-          docker image ls -a
-          docker ps
+          docker run --rm nezumukun/app:latest ls -alR /
